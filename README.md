@@ -16,7 +16,7 @@ composer create-project laravel/laravel laravel_jwt_vuejs --prefer-dist
 composer require tymon/jwt-auth:dev-develop
 ```
 
-##Publish JWT Configuration
+## Publish JWT Configuration
   Here, we can use an artisan command to publish the JWT package configuration
 ```bash
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
@@ -24,7 +24,7 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServicePro
 // You can also use this command without provider flag, and select provider from the given list.
 ```
 
-##Create JWT Secret
+## Create JWT Secret
   You can create the JWT secret using the following artisan command
 ```bash
 php artisan jwt:secret 
@@ -32,9 +32,10 @@ php artisan jwt:secret
 //JWT_TTL=10
 ```
 
-##Update Auth Config
-  Open your “config/auth.php” then update the default guard and API driver.
+## Update Auth Config
+  Open your `config/auth.php` then update the default guard and API driver.
  ```php
+<?php
 // Default Guard
 'defaults' => [
     'guard' => 'api',
@@ -52,9 +53,11 @@ php artisan jwt:secret
         'provider' => 'users',
     ],
 ],
+?>
+
  ```
 
-##Update User Model
+## Update User Model
   Open user model, it’s provided with the Laravel application. As I already mention about the changes of the custom Model directory, You need to update the following code into your model file.
 Please make sure to update tests as appropriate.
 
@@ -102,8 +105,8 @@ class User extends Authenticatable implements JWTSubject
 }
 ?>
 ```
-##Update Authentication Middleware
-  Here, I’m updating my “app/Http/Middleware/Authenticate.php” middleware. I’m overriding the handle and authenticate method and I’m setting out to return the JSON formatted responses. Because this setup will be used in Vue Js application where I need JSON formatted responses and login page will be handled by the Vue Js.
+## Update Authentication Middleware
+  Here, I’m updating my `app/Http/Middleware/Authenticate.php` middleware. I’m overriding the handle and authenticate method and I’m setting out to return the JSON formatted responses. Because this setup will be used in Vue Js application where I need JSON formatted responses and login page will be handled by the Vue Js.
   
 ```php
 <?php
@@ -139,8 +142,8 @@ class Authenticate extends Middleware
     }
 }
 ```
-##Laravel Routes
-  Now, we will create required authentication routes in the “routes/api.php”. You just need to add the following routes:
+## Laravel Routes
+  Now, we will create required authentication routes in the `routes/api.php`. You just need to add the following routes:
   ```php
 <?php
 
@@ -176,11 +179,11 @@ Route::prefix('auth')->namespace('Api')->group(function () {
     });
 });
   ```
-##Create Auth Controller
+## Create Auth Controller
 ```bash
 php artisan make:controller Api\AuthController
 ```
-This will create an “AuthController.php” controller at “app/Http/Controllers”.
+This will create an `AuthController.php` controller at `app/Http/Controllers`.
 ```php
 <?php
 
@@ -325,19 +328,19 @@ class AuthController extends Controller
 ```
 In this controller, I’m applying the simple logic to make the registration and login process.
 
-The register() method create a new user after validation.
+The `register()` method create a new user after validation.
 
-The login() method use the Auth::guard() method that use the JWT. The attempt() method checks the given credentials then after the success, it will generate a token which will be returned in the headers of the response.
+The `login()` method use the `Auth::guard()` method that use the JWT. The attempt() method checks the given credentials then after the success, it will generate a token which will be returned in the headers of the response.
 
-The refresh() method regenerate a token if the current token is expired. You can manage the duration in the “config/jwt.php”. And reset the duration as per your application requirement. You just need to add JWT_TTL in your “.env” file. By default, the JWT token is valid for 60 minutes (1 Hour).
+The `refresh()` method regenerate a token if the current token is expired. You can manage the duration in the `config/jwt.php`. And reset the duration as per your application requirement. You just need to add JWT_TTL in your `.env` file. By default, the JWT token is valid for 60 minutes (1 Hour).
 
 ```bash
 JWT_TTL=10
 ```
 I’m changing this limit to 10 minutes, from now our JWT token is valid only for the 10 minutes.
 
-The “logout()” method simply unset the token.
+The `logout()` method simply unset the token.
 
-The “user()” method returns the authenticated user details.
+The `user()` method returns the authenticated user details.
 
 You can test those API in postman.
