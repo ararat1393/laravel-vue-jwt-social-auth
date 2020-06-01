@@ -1,0 +1,41 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "build": "vue-cli-service build",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "axios": "^0.19.2",
+        "bootstrap": "^4.5.0",
+        "cross-env": "^5.2.1",
+        "jquery": "^3.5.1",
+        "laravel-mix": "^4.1.4",
+        "lodash": "^4.17.15",
+        "popper.js": "^1.16.1",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.26.5",
+        "sass-loader": "^7.3.1",
+        "vue": "^2.6.11",
+        "vue-axios": "^2.1.5",
+        "vue-router": "^3.2.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@websanova/vue-auth": "^2.22.0-beta",
+        "es6-promise": "^4.2.8",
+        "fs": "0.0.1-security",
+        "fs-web": "^1.0.1",
+        "vue-global-var": "^1.0.0",
+        "vue-social-auth": "^1.4.3",
+        "vuejs-datatable": "^2.0.0-alpha.7",
+        "vuetify": "^2.2.29",
+        "vuex": "^3.4.0",
+        "yarn": "^1.22.4"
+    }
+}

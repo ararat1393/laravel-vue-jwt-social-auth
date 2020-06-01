@@ -1,0 +1,73 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 5.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.btn-project{
+	background: #2c323f!important;
+}
+
+table tbody .btn{
+	transform: scale(.7)!important;
+}
+table thead th{
+	padding: 0.4rem !important
+}
+li.active i,li.active span{
+	color: #17a2b8 !important;
+}
+
+ul.dtr-details{
+	width: 100%;
+}
+ul.dtr-details li{
+	display: flex;
+	justify-content: space-between;
+}
+.sidenav li {
+	cursor: pointer;
+}
+
+li.active i.sub-i,li.active span.sub-span{
+	color: #fff !important;
+}
+li.open .collapsible-body{display: block;}
+
+
+
+
+
+
+/*top sweem popum */
+.swal2-top{
+	width: 60% !important;
+	top:-9px !important;
+}
+/*.swal2-top >div {
+	width: 100% !important;
+	color: #721c24 !important;
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+}*/
+
+.swal2-top div:first-child div:first-child{
+	flex-flow: row-reverse;
+    width: 100%;
+}
+
+.swal2-top div:first-child div:first-child h2{
+	justify-content: center;
+	color:red;
+}
+.swal2-top div:first-child div:first-child .swal2-x-mark{
+	cursor: pointer;
+}
+.swal2-top div.swal2-content{
+	display: none !important;
+}
