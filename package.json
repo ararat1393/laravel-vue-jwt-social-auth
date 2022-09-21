@@ -34,7 +34,7 @@
         "vue-global-var": "^1.0.0",
         "vue-social-auth": "^1.4.3",
         "vuejs-datatable": "^2.0.0-alpha.7",
-        "vuetify": "^2.2.29",
+        "vuetify": "^2.6.10",
         "vuex": "^3.4.0",
         "yarn": "^1.22.4"
     }
